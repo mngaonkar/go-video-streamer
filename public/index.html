@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Page</title>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+</head>
+
+<body onload="init()">
+    <script>
+    function init() {
+        if (Hls.isSupported()) {
+          console.log("hello hls.js!");
+          var video = document.getElementById("video")
+          var hls = new Hls()
+          hls.loadSource("http://localhost:8080/media/1/stream")
+          hls.attachMedia(video)
+          hls.on(Hls.Events.ERROR, function(event, data){
+            console.log("error fatal flag = " + data.fatal)
+            console.log("media play error = " + data.details)
+          })
+          hls.on(Hls.Events.MEDIA_ATTACHED, function() {
+              console.log("attached to video")
+          })
+          hls.on(Hls.Events.MANIFEST_PARSED, function(event, data) {
+              console.log("manifest parsed")
+              video.play()
+          })
+        }
+    }
+    </script>
+
+    Hello World from Go Fiber!
+    <video id="video" muted="muted" controls></video>
+</body>
+</html>
