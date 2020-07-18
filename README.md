@@ -1,4 +1,4 @@
-# video-streamer
+# Video Streamer
 HLS video streamer developed in  GO with Fiber (https://github.com/gofiber/fiber)
 
 Convert mp4 files to TLS compatible format using following command and place it in specific folder in public folder.
