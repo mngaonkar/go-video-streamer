@@ -1,2 +1,2 @@
 # video-streamer
-HLS video streamer developer in  GO with https://github.com/gofiber/fiber
+HLS video streamer developed in  GO with Fiber (https://github.com/gofiber/fiber)
