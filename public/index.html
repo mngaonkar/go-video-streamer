@@ -5,9 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Test Page</title>
     <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
 </head>
 
 <body onload="init()">
+    <div id="mydiv"></div>
+
     <script>
     function init() {
         if (Hls.isSupported()) {
@@ -30,8 +35,15 @@
         }
     }
     </script>
+    <script type="text/babel">
+    class Hello extends React.Component {
+        render() {
+          return <h1>Go Video Streamer</h1>
+        }
+      }
 
-    Hello World from Go Fiber!
+      ReactDOM.render(<Hello />, document.getElementById('mydiv'))
+    </script>
     <video id="video" muted="muted" controls></video>
 </body>
 </html>
