@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: go-video-streamer
+  labels:
+    app: go-video-streamer
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: go-video-streamer
+  template:
+    metadata:
+      labels:
+        app: go-video-streamer
+    spec:
+      containers:
+      - name: go-video-streamer
+        image: mngaonkar/go-video-streamer
+        ports:
+        - containerPort: 8080 
