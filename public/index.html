@@ -19,7 +19,7 @@
           console.log("hello hls.js!");
           var video = document.getElementById("video")
           var hls = new Hls()
-          hls.loadSource("http://localhost:8080/media/1/stream")
+          hls.loadSource("media/1/stream")
           hls.attachMedia(video)
           hls.on(Hls.Events.ERROR, function(event, data){
             console.log("error fatal flag = " + data.fatal)
